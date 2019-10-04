@@ -32,7 +32,7 @@ button{
   color: #808b97;
   font-size: 1.5rem;
   margin: 3% auto 5% auto;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Fauna One', serif;
 }
 
 button:hover {
@@ -47,4 +47,17 @@ div.image{
   content: url("imgs/bitcoin.png");
   margin: 8% auto 3% auto;
   width: 8%;
+}
+
+.dropdown{
+  margin: 4% auto 0 auto;
+
+}
+
+.dropdown, select, option{
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
 }
