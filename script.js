@@ -17,25 +17,38 @@ app.post("/", function(req, res){
 
   //console.log(req.body.fiat);
 
+var crypto = req.body.crypto;
 var fiat = req.body.fiat;
-var baseURL ="https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC";
+var amount = req.body.amount;
 
-var fullURL = "";
+var baseURL ="https://apiv2.bitcoinaverage.com/convert/global";
 
-if (fiat == "USDC"){
-  fullURL = "https://apiv2.bitcoinaverage.com/indices/crypto/ticker/BTCUSDC";
-}
+var options = {
+  url : baseURL,
+  method : "GET",
+  qs : {
+    from: crypto,
+    to: fiat,
+    amount: amount,
+  }
+};
 
-else{
-  fullURL = baseURL + fiat;
-}
 
-  request(fullURL, function(error, response, body){
+  request(options, function(error, response, body){
+    console.log(body);
       var data = JSON.parse(body);
-      var lastPrice = data.last;
+      var lastPrice = data.price;
+      console.log(lastPrice);
 
-      res.send("<h1>The current price of bitcoin is " + lastPrice + fiat + "</h1>");
+      var currentDate = data.time;
+
+      res.write("<p>The current date is " + currentDate + ".</p>");
+      res.write("<h1>" + amount + crypto + " is currently worth " + lastPrice + fiat + "</h1>");
+
+      res.send();
   });
+
+
 });
 
 

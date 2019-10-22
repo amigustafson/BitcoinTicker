@@ -15,14 +15,20 @@
 
 
   <form  action="/" method="post">
-    <div class="dropdown">
+
+  <input type="text" name="amount" placeholder="Quantity">
+  <!--  <div class="dropdown"> -->
+    <select name="crypto">
+      <option value="BTC">Bitcoin</option>
+      <option value="LTC">Litecoin</option>
+      <option value="ETH">Etherium</option>
+    </select>
     <select name="fiat">
-      <option value="USDC">US Dollars</option>
+      <option value="USD">US Dollars</option>
       <option value="GBP">Great Brittain Pounds</option>
       <option value="EUR">Eruos</option>
     </select>
 
-</div>
 
 <button type="submit" name="button">Check Bitcoin Value</button>
 </form>
